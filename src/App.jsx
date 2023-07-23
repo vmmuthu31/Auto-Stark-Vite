@@ -30,7 +30,8 @@ function App() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    await writeContract(account, from, to, amount, window, delay);
+    const id = await writeContract(account, from, to, amount, window, delay);
+    setId(id);
   };
   const handleBlick = async (e) => {
     e.preventDefault();
@@ -45,7 +46,7 @@ function App() {
     await mintMe(account, from);
   };
   return (
-    <div className="bg-[#1F1D29] py-20 text-white">
+    <div className="bg-[#1F1D29]  text-white">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
@@ -161,108 +162,107 @@ function App() {
         </Dialog>
       </header>
 
-      <div className="flex relative pt-40 mb-20 bg-[#1F1D29] flex-col items-center justify-center h-screen space-y-4">
+      <div className="flex relative  bg-[#1F1D29] flex-col items-center justify-center h-screen space-y-20">
         <h1 className="text-4xl font-bold">Automation on Starknet</h1>
-        <form className="flex flex-col space-y-4" onSubmit={handleClick}>
-          <input
-            type="text"
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-            placeholder="From"
-          />
-          <input
-            type="text"
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-            placeholder="To"
-          />
-          <input
-            type="text"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            placeholder="Amount"
-          />
-          <input
-            type="text"
-            value={window}
-            onChange={(e) => setWindow(e.target.value)}
-            placeholder="Window"
-          />
-          <input
-            type="text"
-            value={delay}
-            onChange={(e) => setDelay(e.target.value)}
-            placeholder="Delay"
-          />
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
+        <div className="flex flex-row space-x-20">
+          {/* Form for handleMint */}
+          <form
+            className="flex flex-col space-y-4 bg-[#1F1D29]"
+            onSubmit={handleMint}
           >
-            Write Contract
-          </button>
-        </form>
+            <p className="text-center text-xl text-white">Mint Function</p>
+            <input
+              type="text"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+              placeholder="From"
+            />
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
+              Mint Me
+            </button>
+          </form>
+          <form className="flex flex-col space-y-4" onSubmit={handleClick}>
+            <p className="text-center text-xl text-white">Write Function</p>
+            <input
+              type="text"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+              placeholder="From"
+            />
+            <input
+              type="text"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+              placeholder="To"
+            />
+            <input
+              type="text"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Amount"
+            />
+            <input
+              type="text"
+              value={window}
+              onChange={(e) => setWindow(e.target.value)}
+              placeholder="Window"
+            />
+            <input
+              type="text"
+              value={delay}
+              onChange={(e) => setDelay(e.target.value)}
+              placeholder="Delay"
+            />
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
+              Write Contract
+            </button>
+          </form>
 
-        <form className="flex flex-col space-y-4" onSubmit={handleBlick}>
-          <input
-            type="text"
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-            placeholder="From"
-          />
-          <input
-            type="text"
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-            placeholder="To"
-          />
-          <input
-            type="text"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            placeholder="Amount"
-          />
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          >
-            Execute Oi
-          </button>
-        </form>
+          <form className="flex flex-col space-y-4" onSubmit={handleBlick}>
+            <p className="text-center text-xl text-white">Execute Function</p>
+            <input
+              type="text"
+              value={from}
+              onChange={(e) => setFrom(e.target.value)}
+              placeholder="From"
+            />
+            <input
+              type="text"
+              value={to}
+              onChange={(e) => setTo(e.target.value)}
+              placeholder="To"
+            />
+            <input
+              type="text"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Amount"
+            />
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
+              Execute Oi
+            </button>
+          </form>
 
-        {/* Form for handleFlick */}
-        <form className="flex flex-col space-y-4" onSubmit={handleFlick}>
-          <input
-            type="text"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-            placeholder="ID"
-          />
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          >
-            Cancel It
-          </button>
-        </form>
-
-        {/* Form for handleMint */}
-        <form
-          className="flex flex-col space-y-4 bg-[#1F1D29]"
-          onSubmit={handleMint}
-        >
-          <input
-            type="text"
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-            placeholder="From"
-          />
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          >
-            Mint Me
-          </button>
-        </form>
+          {/* Form for handleFlick */}
+          <form className="flex flex-col space-y-4" onSubmit={handleFlick}>
+            <p className="text-center text-xl text-white">Cancel Function</p>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              type="submit"
+            >
+              Cancel It
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

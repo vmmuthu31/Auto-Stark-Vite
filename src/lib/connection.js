@@ -1,5 +1,5 @@
 import { RpcProvider, Contract } from "starknet";
-import ethers from "ethers";
+import { ethers } from "ethers";
 // https://starknet-goerli.g.alchemy.com/v2/hU1jbwgccRY8mnOWzvECf-C2tuu8Xtrz
 const alchemyKey = "hU1jbwgccRY8mnOWzvECf-C2tuu8Xtrz";
 const providerRPC = new RpcProvider({

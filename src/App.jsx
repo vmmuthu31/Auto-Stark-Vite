@@ -86,7 +86,23 @@ function App() {
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     onClick={() => connect(connector)}
                   >
-                    {status}
+                    {status === "connected" ? (
+                      <>
+                        <button
+                          onClick={() =>
+                            this.setState({ status: "disconnected" })
+                          }
+                        >
+                          Disconnect Wallet
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        onClick={() => this.setState({ status: "connected" })}
+                      >
+                        Connect Wallet
+                      </button>
+                    )}
                   </button>
                 </p>
               ))}

@@ -30,8 +30,7 @@ function App() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const id = await writeContract(account, from, to, amount, window, delay);
-    setId(id);
+    await writeContract(account, from, to, amount, window, delay);
   };
   const handleBlick = async (e) => {
     e.preventDefault();
@@ -264,6 +263,13 @@ function App() {
           {/* Form for handleFlick */}
           <form className="flex flex-col space-y-4" onSubmit={handleFlick}>
             <p className="text-center text-xl text-white">Cancel Function</p>
+            <input
+              type="text"
+              value={amount}
+              className="text-center"
+              onChange={(e) => setId(e.target.value)}
+              placeholder="Id"
+            />
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               type="submit"

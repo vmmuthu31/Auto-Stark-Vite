@@ -167,13 +167,14 @@ function App() {
         <div className="flex flex-row space-x-20">
           {/* Form for handleMint */}
           <form
-            className="flex flex-col space-y-4 bg-[#1F1D29]"
+            className="flex flex-col text-center space-y-4 bg-[#1F1D29]"
             onSubmit={handleMint}
           >
             <p className="text-center text-xl text-white">Mint Function</p>
             <input
               type="text"
               value={from}
+              className="text-center"
               onChange={(e) => setFrom(e.target.value)}
               placeholder="From"
             />
@@ -189,30 +190,35 @@ function App() {
             <input
               type="text"
               value={from}
+              className="text-center"
               onChange={(e) => setFrom(e.target.value)}
               placeholder="From"
             />
             <input
               type="text"
               value={to}
+              className="text-center"
               onChange={(e) => setTo(e.target.value)}
               placeholder="To"
             />
             <input
               type="text"
               value={amount}
+              className="text-center"
               onChange={(e) => setAmount(e.target.value)}
               placeholder="Amount"
             />
             <input
               type="text"
               value={window}
+              className="text-center"
               onChange={(e) => setWindow(e.target.value)}
               placeholder="Window"
             />
             <input
               type="text"
               value={delay}
+              className="text-center"
               onChange={(e) => setDelay(e.target.value)}
               placeholder="Delay"
             />
@@ -229,18 +235,21 @@ function App() {
             <input
               type="text"
               value={from}
+              className="text-center"
               onChange={(e) => setFrom(e.target.value)}
               placeholder="From"
             />
             <input
               type="text"
               value={to}
+              className="text-center"
               onChange={(e) => setTo(e.target.value)}
               placeholder="To"
             />
             <input
               type="text"
               value={amount}
+              className="text-center"
               onChange={(e) => setAmount(e.target.value)}
               placeholder="Amount"
             />

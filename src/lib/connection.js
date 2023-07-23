@@ -1,4 +1,5 @@
 import { RpcProvider, Contract } from "starknet";
+import ethers from "ethers";
 // https://starknet-goerli.g.alchemy.com/v2/hU1jbwgccRY8mnOWzvECf-C2tuu8Xtrz
 const alchemyKey = "hU1jbwgccRY8mnOWzvECf-C2tuu8Xtrz";
 const providerRPC = new RpcProvider({
@@ -23,7 +24,9 @@ const providerRPC = new RpcProvider({
  *
  * Also there is felttosting func which converts felt messages(revert messages) into string.If using argentx they show txn simulation and error msg in felt
  */
-
+const changeValue = (amount) => {
+  return ethers.parseUnits(amount).toString();
+};
 export const writeContract = async (
   account,
   from,

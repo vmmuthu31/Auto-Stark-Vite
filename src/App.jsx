@@ -45,7 +45,7 @@ function App() {
     await mintMe(account, from);
   };
   return (
-    <div className="bg-[#1F1D29]  text-white">
+    <div className="bg-[#1F1D29]   text-white">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
@@ -163,10 +163,10 @@ function App() {
 
       <div className="flex relative  bg-[#1F1D29] flex-col items-center justify-center h-screen space-y-20">
         <h1 className="text-4xl font-bold">Automation on Starknet</h1>
-        <div className="flex flex-row space-x-20">
+        <div className="flex bg-[#1F1D29] lg:pt-0 pt-40 lg:flex-row flex-col space-y-5 lg:space-x-20">
           {/* Form for handleMint */}
           <form
-            className="flex flex-col text-center space-y-4 bg-[#1F1D29]"
+            className="flex flex-col  space-y-4 bg-[#1F1D29]"
             onSubmit={handleMint}
           >
             <p className="text-center text-xl text-white">Mint Function</p>
